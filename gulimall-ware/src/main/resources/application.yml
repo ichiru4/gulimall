@@ -6,7 +6,45 @@ spring:
     password: root
     url: jdbc:mysql://192.168.182.100:3306/gulimall_wms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+logging:
+  level:
+    com.atguigu: debug
+
+seata:
+  enabled: false
+  enable-auto-data-source-proxy: false
+  application-id: ${spring.application.name}
+  tx-service-group: gulimall-ware
+  service:
+    vgroup-mapping:
+      my_tx_group: default
+
+    grouplist:
+      seata-server: 127.0.0.1:8091
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      group: "SEATA_GROUP"
+      namespace: "29d0398b-22d7-401d-b239-b7dc91a5324f"
+      dataId: "seataServer.properties"
+      username: "nacos"
+      password: "nacos"
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group: "SEATA_GROUP"
+      namespace: "29d0398b-22d7-401d-b239-b7dc91a5324f"
+      username: "nacos"
+      password: "nacos"
+
+
+

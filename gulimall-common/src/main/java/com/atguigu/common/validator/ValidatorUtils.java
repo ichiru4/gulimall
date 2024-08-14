@@ -18,6 +18,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.Set;
 
+
 /**
  * hibernate-validator校验工具类
  *

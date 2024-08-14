@@ -8,6 +8,10 @@
 
 package com.atguigu.common.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.apache.http.HttpStatus;
 
 import java.util.HashMap;
@@ -18,9 +22,27 @@ import java.util.Map;
  *
  * @author Mark sunlightcs@gmail.com
  */
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class R extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
-	
+
+	public <T> T getData(String key,TypeReference<T> typeReference){
+		Object data = get(key);
+		String s = JSON.toJSONString(data);
+//		String parse = JSON.parse(s).toString();
+		return JSON.parseObject(s, typeReference);
+	}
+
+	public <T> T getData(TypeReference<T> typeReference){
+		Object data = get("data");
+		String s = JSON.toJSONString(data);
+		return JSON.parseObject("s", typeReference);
+	}
+	public R setData(Object data) {
+		this.put("data", data);
+		return this;
+	}
+
 	public R() {
 		put("code", 0);
 		put("msg", "success");
@@ -60,5 +82,8 @@ public class R extends HashMap<String, Object> {
 	public R put(String key, Object value) {
 		super.put(key, value);
 		return this;
+	}
+	public Integer getCode() {
+		 return (Integer) this.get("code");
 	}
 }

@@ -54,6 +54,12 @@
             <groupId>io.renren</groupId>
             <artifactId>renren-fast</artifactId>
             <version>3.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>aliyun-sdk-oss</artifactId>
+                    <groupId>com.aliyun.oss</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
        <!-- <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -65,14 +71,44 @@
         </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>2.0.51</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+
+
 
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>22.0</version>
         </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+
 
 
     </dependencies>

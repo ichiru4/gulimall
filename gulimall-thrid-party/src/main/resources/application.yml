@@ -1,0 +1,15 @@
+server:
+  port: 30000
+spring:
+  cloud:
+    alicloud:
+      access-key: LTAI5tRdDU6LtLubEzkzQQ6X
+      secret-key: Y4BrHCjVEKzrHnaqEklDjgxncDFqr8
+      oss:
+        endpoint: oss-cn-beijing.aliyuncs.com
+        bucket: gulimall-xuyi
+      sms:
+        host: https://gyytz.market.alicloudapi.com
+        path: /sms/smsSend
+        appcode: e69fb02e42c84a5eb6379381a593bdcd
+
